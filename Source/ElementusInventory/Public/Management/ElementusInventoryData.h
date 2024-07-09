@@ -33,6 +33,48 @@ enum class EElementusItemType : uint8
 	MAX
 };
 
+UENUM(BlueprintType, Category = "Elementus Inventory | Enumerations")
+enum class EElementusItemCategory : uint8
+{
+	None,
+	Potion,
+	Grenade,
+	Mine,
+	Sword,
+	Katana,
+	Axe,
+	Bow,
+	Shield,
+	Spear,
+	Rifle,
+	Shotgun,
+	Revolver,
+	Pistol,
+	Helmet,
+	Chestplate,
+	Gauntlet,
+	Boots,
+	Ring,
+	Amulet,
+	Bracelet,
+
+
+	MAX
+};
+
+UENUM(BlueprintType, Category = "Elementus Inventory | Enumerations")
+enum class EElementusItemRarity : uint8
+{
+	Common,
+	Uncommon,
+	Rare,
+	Epic,
+	Legendary,
+	Unique,
+
+	MAX
+};
+
 USTRUCT(BlueprintType, Category = "Elementus Inventory | Structs")
 struct FPrimaryElementusItemId : public FPrimaryAssetId
 {
@@ -150,6 +192,12 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (AssetBundles = "Data"))
 	EElementusItemType ItemType;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (AssetBundles = "Data"))
+	EElementusItemCategory ItemCategory;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (AssetBundles = "Data"))
+	EElementusItemRarity ItemRarity;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (AssetBundles = "Data"))
 	bool bIsStackable = true;
