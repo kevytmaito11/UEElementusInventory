@@ -124,10 +124,14 @@ public:
 	bool FindFirstItemIndexWithInfo(const FElementusItemInfo& InItemInfo, int32& OutIndex, const FGameplayTagContainer& IgnoreTags,
 	                                const int32 Offset = 0) const;
 
-	/* Find the first elementus item that matches the specified tag container */
+	/* Find the first elementus item that matches exact the specified tag container */
 	UFUNCTION(BlueprintPure, Category = "Elementus Inventory", meta = (AutoCreateRefTerm = "IgnoreTags"))
 	bool FindFirstItemIndexWithTags(const FGameplayTagContainer& WithTags, int32& OutIndex, const FGameplayTagContainer& IgnoreTags,
 	                                const int32 Offset = 0) const;
+
+	/* Find the first elementus item that has the specified tag */
+	UFUNCTION(BlueprintPure, Category = "Elementus Inventory", meta = (AutoCreateRefTerm = "IgnoreTags"))
+	bool FindFirstItemIndexWithTag(FGameplayTag WithTag, int32& OutIndex, const FGameplayTagContainer& IgnoreTags, const int32 Offset) const;
 
 	/* Find the first elementus item that matches the specified id */
 	UFUNCTION(BlueprintPure, Category = "Elementus Inventory", meta = (AutoCreateRefTerm = "IgnoreTags"))

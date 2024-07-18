@@ -412,6 +412,24 @@ bool UElementusInventoryComponent::FindFirstItemIndexWithTags(const FGameplayTag
 	return false;
 }
 
+bool UElementusInventoryComponent::FindFirstItemIndexWithTag(FGameplayTag WithTag, int32& OutIndex, const FGameplayTagContainer& IgnoreTags, const int32 Offset) const
+{
+	for (int32 Iterator = Offset; Iterator < ElementusItems.Num(); ++Iterator)
+	{
+		FElementusItemInfo InExistingCopy = ElementusItems[Iterator];
+		InExistingCopy.Tags.RemoveTags(IgnoreTags);
+
+		if (InExistingCopy.Tags.HasTag(WithTag))
+		{
+			OutIndex = Iterator;
+			return true;
+		}
+	}
+
+	OutIndex = INDEX_NONE;
+	return false;
+}
+
 bool UElementusInventoryComponent::FindFirstItemIndexWithId(const FPrimaryElementusItemId& InId, int32& OutIndex,
                                                             const FGameplayTagContainer& IgnoreTags, const int32 Offset) const
 {
