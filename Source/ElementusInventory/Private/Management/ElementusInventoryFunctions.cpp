@@ -267,7 +267,7 @@ TArray<FElementusItemInfo> UElementusInventoryFunctions::FilterTradeableItems(UE
 			return false;
 		}
 
-		bool bCanTradeIterator = FromInventory->CanGiveItem(Iterator) && ToInventory->CanReceiveItem(Iterator);
+		bool bCanTradeIterator = true;
 
 		if (bCanTradeIterator)
 		{

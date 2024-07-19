@@ -77,16 +77,14 @@ void AElementusInventoryPackage::SetDestroyOnEmpty(const bool bDestroy)
 	}
 
 	bDestroyWhenInventoryIsEmpty = bDestroy;
-	FElementusInventoryEmpty Delegate = PackageInventory->OnInventoryEmpty;
 
-	if (const bool bIsAlreadyBound = Delegate.IsAlreadyBound(this, &AElementusInventoryPackage::BeginPackageDestruction); bDestroy && !
-		bIsAlreadyBound)
+	if (const bool bIsAlreadyBound = PackageInventory->OnInventoryEmpty.IsAlreadyBound(this, &AElementusInventoryPackage::BeginPackageDestruction); bDestroy && !bIsAlreadyBound)
 	{
-		Delegate.AddDynamic(this, &AElementusInventoryPackage::BeginPackageDestruction);
+		PackageInventory->OnInventoryEmpty.AddDynamic(this, &AElementusInventoryPackage::BeginPackageDestruction);
 	}
 	else if (!bDestroy && bIsAlreadyBound)
 	{
-		Delegate.RemoveDynamic(this, &AElementusInventoryPackage::BeginPackageDestruction);
+		PackageInventory->OnInventoryEmpty.RemoveDynamic(this, &AElementusInventoryPackage::BeginPackageDestruction);
 	}
 }
 
