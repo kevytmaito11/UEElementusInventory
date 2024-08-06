@@ -130,7 +130,12 @@ struct FElementusItemInfo
 	}
 
 	explicit FElementusItemInfo(const FPrimaryElementusItemId& InItemId, const int32& InQuant,
-	                            const FGameplayTagContainer& InTags) : ItemId(InItemId), Quantity(InQuant), Tags(InTags)
+		const FGameplayTagContainer& InTags) : ItemId(InItemId), Quantity(InQuant), Tags(InTags)
+	{
+	}
+
+	explicit FElementusItemInfo(const FPrimaryElementusItemId& InItemId, const int32& InLevel, const int32& InQuant,
+	                            const FGameplayTagContainer& InTags) : ItemId(InItemId), Level(InLevel), Quantity(InQuant), Tags(InTags)
 	{
 	}
 

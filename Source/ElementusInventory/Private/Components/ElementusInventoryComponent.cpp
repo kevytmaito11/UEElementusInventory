@@ -744,7 +744,7 @@ void UElementusInventoryComponent::Server_ProcessInventoryAddition_Internal_Impl
 		{
 			for (int32 i = 0u; i < Iterator.ItemInfo.Quantity; ++i)
 			{
-				const FElementusItemInfo ItemInfo{Iterator.ItemInfo.ItemId, 1, Iterator.ItemInfo.Tags};
+				const FElementusItemInfo ItemInfo{Iterator.ItemInfo.ItemId, Iterator.ItemInfo.Level, 1, Iterator.ItemInfo.Tags};
 
 				ElementusItems.Add(ItemInfo);
 			}
