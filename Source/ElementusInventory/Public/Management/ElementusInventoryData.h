@@ -6,6 +6,7 @@
 
 #include <CoreMinimal.h>
 #include <GameplayTagContainer.h>
+#include <AttributeSet.h>
 #include <Engine/DataAsset.h>
 #include "ElementusInventoryData.generated.h"
 
@@ -20,6 +21,7 @@ enum class EElementusItemType : uint8
 	Consumable,
 	Armor,
 	Weapon,
+	Shout,
 	Accessory,
 	Crafting,
 	Material,
@@ -43,6 +45,7 @@ enum class EElementusItemCategory : uint8
 	Sword,
 	Katana,
 	Axe,
+	Dagger,
 	Bow,
 	Shield,
 	Spear,
@@ -58,7 +61,6 @@ enum class EElementusItemCategory : uint8
 	Amulet,
 	Bracelet,
 
-
 	MAX
 };
 
@@ -71,6 +73,19 @@ enum class EElementusItemRarity : uint8
 	Epic,
 	Legendary,
 	Unique,
+
+	MAX
+};
+
+UENUM(BlueprintType, Category = "Elementus Inventory | Enumerations")
+enum class ESkillScaling : uint8
+{
+	E,
+	D,
+	C,
+	B,
+	A,
+	S,
 
 	MAX
 };
@@ -212,6 +227,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (UIMin = 0, ClampMin = 0, AssetBundles = "Data"))
 	float ItemWeight;
+
+	/* Skill scaling for attributes */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (DisplayName = "Attribute scaling", AssetBundles = "Data"))
+	TMap<FGameplayAttribute, ESkillScaling> AttributeSkills;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (AssetBundles = "UI"))
 	TSoftObjectPtr<UTexture2D> ItemIcon;

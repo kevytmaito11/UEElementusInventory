@@ -13,7 +13,8 @@ public class ElementusInventory : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new[]
 		{
-			"Core"
+			"Core",
+            "GameplayAbilities" // Required for FGameplayAttribute and related functionality
 		});
 
 		PrivateDependencyModuleNames.AddRange(new[]
@@ -21,8 +22,8 @@ public class ElementusInventory : ModuleRules
 			"Engine",
 			"NetCore",
 			"CoreUObject",
-			"GameplayTags",
-			"DeveloperSettings"
+            "GameplayTags",      // Required for tag-based systems
+            "DeveloperSettings"
 		});
 	}
 }
