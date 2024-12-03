@@ -37,5 +37,11 @@
         "Linux"
       ]
     }
+  ],
+  "Plugins": [
+    {
+      "Name": "GameplayAbilities",
+      "Enabled": true
+    }
   ]
 }
