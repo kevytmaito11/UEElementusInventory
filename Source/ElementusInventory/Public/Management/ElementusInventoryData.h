@@ -228,6 +228,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (UIMin = 0, ClampMin = 0, AssetBundles = "Data"))
 	float ItemWeight;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (UIMin = 0, ClampMin = 0, AssetBundles = "Data"))
+	float ItemAttackValue;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (UIMin = 0, ClampMin = 0, AssetBundles = "Data"))
+	float ItemDefenseValue;
+
 	/* Skill scaling for attributes */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Elementus Inventory", meta = (DisplayName = "Attribute scaling", AssetBundles = "Data"))
 	TMap<FGameplayAttribute, ESkillScaling> AttributeSkills;

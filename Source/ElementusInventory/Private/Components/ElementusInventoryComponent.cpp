@@ -359,7 +359,7 @@ void UElementusInventoryComponent::ForceInventoryValidation()
 			}
 			else
 			{
-				ElementusItems.RemoveAt(Iterator, 1, false);
+				ElementusItems.RemoveAt(Iterator, 1, EAllowShrinking::No);
 			}
 		}
 	}
@@ -806,7 +806,7 @@ void UElementusInventoryComponent::OnRep_ElementusItems()
 		return UElementusInventoryFunctions::IsItemValid(Item);
 	}); LastValidIndex != INDEX_NONE && ElementusItems.IsValidIndex(LastValidIndex + 1))
 	{
-		ElementusItems.RemoveAt(LastValidIndex + 1, ElementusItems.Num() - LastValidIndex - 1, false);
+		ElementusItems.RemoveAt(LastValidIndex + 1, ElementusItems.Num() - LastValidIndex - 1, EAllowShrinking::No);
 	}
 	else if (LastValidIndex == INDEX_NONE && !UElementusInventoryFunctions::HasEmptyParam(ElementusItems))
 	{
